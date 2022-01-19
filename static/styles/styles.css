@@ -3,23 +3,26 @@ body {
 }
 
 header {
+  margin-top: 30px !important;
   margin-bottom: 50px;
 }
 
 #artist-map {
   margin-left: 50px;
-  margin-top: 30px;
   width: 30%;
 }
 
 #artist-icons {
-  width: 20%;
-  border: 2px solid #f7c263;
+  width: 15rem;
+  height: 15rem;
+  object-fit: cover;
+  border: 9px solid white;
   border-radius: 100%;
 }
 
 #color-covers {
   margin-top: 50px;
+  /* margin-bottom: 60px; */
   width: 80%;
 }
 
@@ -45,12 +48,14 @@ header {
   border: none;
   background-color: white;
   border-radius: 30px;
-  padding: 10px;
+  padding: 15px;
   font-weight: bold;
   margin-bottom: 50px;
   text-decoration: none;
   color: black;
   margin-left: 30px;
+  margin-right: 30px;
+  float: right;
 }
 
 .right-col {

@@ -28,17 +28,20 @@
       />
       <a id="sign-out" href="/sign_out">Sign Out</a>
     </header>
-    {%for i in range(0, length)%}
-    <a href="/recommended-artists?artistID={{ data['data'][i].artist_id }}">
-      <img
-        id="artist-icons"
-        src="{{ data['data'][i].artist_image_url }}"
-        alt=""
-      />
-    </a>
+    <div class="container">
+      {%for i in range(0, length)%}
+      <a
+        href="/recommended-artists?artistID={{ data['data'][i].artist_id }}&artistName={{ data['data'][i].name }}"
+      >
+        <img
+          id="artist-icons"
+          src="{{ data['data'][i].artist_image_url }}"
+          alt=""
+        />
+      </a>
 
-    {%endfor%}
-    <div class="container align-items-center"></div>
+      {%endfor%}
+    </div>
 
     <!-- Optional JavaScript; choose one of the two! -->
 

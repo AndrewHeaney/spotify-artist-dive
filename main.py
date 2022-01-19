@@ -91,6 +91,7 @@ def current_user():
   response = spotify.current_user_followed_artists()
   # return get_user_followed_artists(response)
   data = get_user_followed_artists(response)
+  print(data)
   return render_template(
     'artists.html',
     data=data,
@@ -100,6 +101,7 @@ def current_user():
 @app.route('/recommended-artists', )
 def recommended_artists():
   original_artist_id = request.args.get('artistID')
+  original_artist_name = request.args.get('artistName')
 
   cache_handler = spotipy.cache_handler.CacheFileHandler(cache_path=session_cache_path())
   auth_manager = spotipy.oauth2.SpotifyOAuth(cache_handler=cache_handler)
@@ -121,9 +123,11 @@ def recommended_artists():
     artist_recommended.append(artist)
 
   # return {'data': artist_recommended}
+  print(artist_recommended)
   return render_template(
     'explore.html',
     data=artist_recommended,
+    artist_name=original_artist_name,
     length=len(artist_recommended)
   )
   
