@@ -52,6 +52,8 @@ def get_recommended_artists():
   
   return response_data
 
+
+
 app = FastAPI()
 
 @app.get("/", response_class=HTMLResponse)

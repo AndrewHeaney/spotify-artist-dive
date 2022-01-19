@@ -1,6 +1,7 @@
 import os
 from flask import Flask, session, request, redirect
 from flask_session import Session
+from flask import render_template
 import spotipy
 import uuid
 from dataclasses import dataclass
@@ -43,16 +44,15 @@ def index():
     return redirect('/')
 
   if not auth_manager.validate_token(cache_handler.get_cached_token()):
-    # Step 2. Display sign in link when no token
     auth_url = auth_manager.get_authorize_url()
-    return f'<h2><a href="{auth_url}">Sign in</a></h2>'
+    # return f'<h2><a href="{auth_url}">Sign in</a></h2>'
+    return render_template('index.html', auth_url=auth_url)
 
   # Step 4. Signed in, display data
   spotify = spotipy.Spotify(auth_manager=auth_manager)
   return f'<h2>Hi {spotify.me()["display_name"]}, ' \
        f'<small><a href="/sign_out">[sign out]<a/></small></h2>' \
        f'<a href="/following">Following</a> | ' \
-
 
 @app.route('/sign_out')
 def sign_out():

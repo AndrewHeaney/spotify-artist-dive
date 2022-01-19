@@ -1,0 +1,42 @@
+body {
+  background-color: #fecfd5;
+}
+
+header {
+  margin-bottom: 50px;
+}
+
+#artist-map {
+  margin-left: 50px;
+  margin-top: 30px;
+  width: 30%;
+}
+
+#color-covers {
+  margin-top: 50px;
+  width: 80%;
+}
+
+#discover-text {
+  font-size: 3rem;
+  text-align: left;
+  font-weight: bold;
+  margin-bottom: 50px;
+}
+
+#login-with {
+  border: none;
+  background-color: white;
+  border-radius: 30px;
+  padding: 25px;
+  font-weight: bold;
+  margin-bottom: 50px;
+  text-decoration: none;
+  color: black;
+}
+
+.right-col {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
