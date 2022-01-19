@@ -50,9 +50,10 @@ def index():
 
   # Step 4. Signed in, display data
   spotify = spotipy.Spotify(auth_manager=auth_manager)
-  return f'<h2>Hi {spotify.me()["display_name"]}, ' \
-       f'<small><a href="/sign_out">[sign out]<a/></small></h2>' \
-       f'<a href="/following">Following</a> | ' \
+  # return f'<h2>Hi {spotify.me()["display_name"]}, ' \
+  #      f'<small><a href="/sign_out">[sign out]<a/></small></h2>' \
+  #      f'<a href="/following">Following</a> | ' \
+  return render_template('explore.html')
 
 @app.route('/sign_out')
 def sign_out():
