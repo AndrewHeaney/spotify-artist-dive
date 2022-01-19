@@ -1,0 +1,5 @@
+spotipy
+fastapi
+python-dotenv
+Flask
+Flask-Session
