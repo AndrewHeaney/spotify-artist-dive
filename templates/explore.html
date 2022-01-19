@@ -28,16 +28,30 @@
       />
       <a id="sign-out" href="/sign_out">Sign Out</a>
     </header>
-    <div class="container">
+    <div class="container text-center">
+      <h3>Artists similar to:</h3>
       <h2>{{ artist_name }}</h2>
-      {%for i in range(0, length)%}
-      <a
-        href="/recommended-artists?artistID={{ data[i].artist_id }}&artistName={{  data[i].name  }}"
-      >
-        <img id="artist-icons" src="{{ data[i].artist_image_url }}" alt="" />
-      </a>
-
-      {%endfor%}
+      <div class="row">
+        {%for i in range(0, length)%}
+        <div class="col" id="artist-info">
+          <a
+            href="/recommended-artists?artistID={{ data[i].artist_id }}&artistName={{  data[i].name  }}"
+          >
+            <img
+              id="artist-icons"
+              src="{{ data[i].artist_image_url }}"
+              alt=""
+            />
+          </a>
+          <p id="artist-name">{{ data[i].name }}</p>
+          <a
+            id="listen"
+            href="https://open.spotify.com/artist/{{ data[i].artist_id }}"
+            >Listen</a
+          >
+        </div>
+        {%endfor%}
+      </div>
     </div>
 
     <!-- Optional JavaScript; choose one of the two! -->

@@ -28,7 +28,8 @@
       />
       <a id="sign-out" href="/sign_out">Sign Out</a>
     </header>
-    <div class="container">
+    <h2>You Follow:</h2>
+    <div class="container text-center" id="container">
       {%for i in range(0, length)%}
       <a
         href="/recommended-artists?artistID={{ data['data'][i].artist_id }}&artistName={{ data['data'][i].name }}"

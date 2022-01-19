@@ -7,17 +7,40 @@ header {
   margin-bottom: 50px;
 }
 
+h2 {
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  width: 29%;
+  margin: 0 auto;
+  padding: 15px;
+  border-radius: 30px;
+  margin-bottom: 10px;
+}
+
+h3 {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  font-weight: 300;
+}
+
 #artist-map {
   margin-left: 50px;
   width: 30%;
 }
 
 #artist-icons {
-  width: 15rem;
-  height: 15rem;
+  width: 12rem;
+  height: 12rem;
   object-fit: cover;
   border: 9px solid white;
   border-radius: 100%;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 15px;
+  margin-top: 50px;
 }
 
 #color-covers {
@@ -57,6 +80,20 @@ header {
   margin-right: 30px;
   float: right;
 }
+
+#listen {
+  border: none;
+  background-color: #57b660;
+  border-radius: 30px;
+  padding: 10px 25px 10px 25px;
+  font-weight: bold;
+  text-decoration: none;
+  color: white;
+}
+
+/* #artist-name {
+
+} */
 
 .right-col {
   display: flex;
