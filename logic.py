@@ -22,10 +22,10 @@ results = sp.current_user_followed_artists()
 # - artistId
 # - image url
 # - Artist Name
-def get_user_artists():
+def get_user_artists(response):
   artist_info = {}
 
-  for idx, item in enumerate(results['artists']['items']):
+  for idx, item in enumerate(response['artists']['items']):
     artist_name = item['name']
     artist_id = item['uri']
     artist_info[artist_id] = artist_name
