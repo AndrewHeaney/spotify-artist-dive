@@ -25,7 +25,7 @@ def session_cache_path():
 class Artist:
   name: str
   artist_id: str
-  arist_image_url: str
+  artist_image_url: str
 
 @app.route('/')
 def index():
@@ -53,7 +53,9 @@ def index():
   # return f'<h2>Hi {spotify.me()["display_name"]}, ' \
   #      f'<small><a href="/sign_out">[sign out]<a/></small></h2>' \
   #      f'<a href="/following">Following</a> | ' \
-  return render_template('explore.html')
+  # should redirect to /following here
+  # return render_template('explore.html')
+  return redirect("/following", code=302)
 
 @app.route('/sign_out')
 def sign_out():
@@ -72,9 +74,9 @@ def get_user_followed_artists(response):
   for _, item in enumerate(response['artists']['items']):
     artist_name = item['name']
     artist_id = item['uri']
-    arist_image_url = item['images'][1]['url']
+    artist_image_url = item['images'][1]['url']
 
-    artist = Artist(artist_name, artist_id, arist_image_url)
+    artist = Artist(artist_name, artist_id, artist_image_url)
     artist_info.append(artist)
   response_data['data'] = artist_info
   return response_data
@@ -87,7 +89,13 @@ def current_user():
     return redirect('/')
   spotify = spotipy.Spotify(auth_manager=auth_manager)
   response = spotify.current_user_followed_artists()
-  return get_user_followed_artists(response)
+  # return get_user_followed_artists(response)
+  data = get_user_followed_artists(response)
+  return render_template(
+    'artists.html',
+    data=data,
+    length=len(data['data'])
+  )
 
 @app.route('/recommended-artists', )
 def recommended_artists():
@@ -112,7 +120,12 @@ def recommended_artists():
     artist = Artist(artist_name, artist_id, artist_image_url)
     artist_recommended.append(artist)
 
-  return {'data': artist_recommended}
+  # return {'data': artist_recommended}
+  return render_template(
+    'explore.html',
+    data=artist_recommended,
+    length=len(artist_recommended)
+  )
   
 if __name__ == '__main__':
   app.run(threaded=True, port=int(

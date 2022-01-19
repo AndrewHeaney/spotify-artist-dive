@@ -12,6 +12,12 @@ header {
   width: 30%;
 }
 
+#artist-icons {
+  width: 20%;
+  border: 2px solid #f7c263;
+  border-radius: 100%;
+}
+
 #color-covers {
   margin-top: 50px;
   width: 80%;
