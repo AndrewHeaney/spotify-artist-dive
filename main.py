@@ -7,7 +7,7 @@ import uuid
 from dataclasses import dataclass
 
 dir = os.getcwd()
-app = Flask(__name__)
+app = Flask(__name__, )
 app.config['SECRET_KEY'] = os.urandom(64)
 app.config['SESSION_TYPE'] = 'filesystem'
 app.config['SESSION_FILE_DIR'] = os.path.join(dir, '/tmp/.flask_session/')
@@ -132,7 +132,7 @@ def recommended_artists():
   )
   
 if __name__ == '__main__':
-  app.run(threaded=True, port=int(
+  app.run(debug=True, threaded=True, port=int(
       os.environ.get("PORT",
       os.environ.get("SPOTIPY_REDIRECT_URI", 8000).split(":")[-1])
     )
