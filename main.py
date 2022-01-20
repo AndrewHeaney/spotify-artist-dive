@@ -132,7 +132,7 @@ def recommended_artists():
   )
   
 if __name__ == '__main__':
-  app.run(debug=True, threaded=True, port=int(
+  app.run(threaded=True, port=int(
       os.environ.get("PORT",
       os.environ.get("SPOTIPY_REDIRECT_URI", 8000).split(":")[-1])
     )
