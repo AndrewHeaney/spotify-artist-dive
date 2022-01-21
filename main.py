@@ -7,7 +7,7 @@ import uuid
 from dataclasses import dataclass
 
 dir = os.getcwd()
-app = Flask(__name__, )
+app = Flask(__name__)
 app.config['SECRET_KEY'] = os.urandom(64)
 app.config['SESSION_TYPE'] = 'filesystem'
 app.config['SESSION_FILE_DIR'] = os.path.join(dir, '/tmp/.flask_session/')
@@ -91,7 +91,7 @@ def current_user():
   response = spotify.current_user_followed_artists()
   # return get_user_followed_artists(response)
   data = get_user_followed_artists(response)
-  print(data)
+
   return render_template(
     'artists.html',
     data=data,
@@ -123,7 +123,6 @@ def recommended_artists():
     artist_recommended.append(artist)
 
   # return {'data': artist_recommended}
-  print(artist_recommended)
   return render_template(
     'explore.html',
     data=artist_recommended,
