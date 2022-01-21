@@ -27,15 +27,6 @@ class Artist:
   artist_id: str
   artist_image_url: str
 
-print('ENV: ', os.getenv('ENVIRONMENT'))
-
-@app.before_request
-def before_request():
-  if (not request.is_secure) and (os.getenv('ENVIRONMENT') != 'development'):
-    url = request.url.replace('http://', 'https://', 1)
-    code = 301
-    return redirect(url, code=code)
-
 @app.route('/')
 def index():
   if not session.get('uuid'):
